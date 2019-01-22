@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "RatedUser";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+<fieldset>
+    <legend>
+        <b>Regular | Users </b>
+    </legend>
+    Filter By
+    <select>
+        <option>Any</option>
+        <option>Name</option>
+        <option>Email</option>
+        <option>Status</option>
+        <option>Rating</option>
+    </select>
+    <input />
+    <input type="submit" value="Search" />
+    
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="left">NAME</th>
+        <th align="left">BUY</th>
+        <th align="left">RENT</th>
+        <th align="left">TOTAL</th>
+        <th colspan="3"></th>
+    </tr>
+    <tr>
+        <td>Ashik Ashrafi</td>
+        <td>0</td>
+        <td>30</td>
+        <td>30</td>
+        <td width="40">@Html.ActionLink("Detail", "Index", "Admin")</td>
+        <td width="30">@Html.ActionLink("Edit", "Index", "Admin")</td>
+        <td width="45">@Html.ActionLink("Delete", "Index", "Admin")</td>
+    </tr>
+</table>
+

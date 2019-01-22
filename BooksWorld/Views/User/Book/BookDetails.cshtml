@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<fieldset>
+    <legend><b>BOOK | DETAIL</b></legend>
+    <br />
+    <table>
+        <tr>
+            <td>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>Name</td>
+                        <td>:</td>
+                        <td>Divergent</td>
+                    </tr>
+                    <tr><td colspan="4"><hr /></td></tr>
+                    <tr>
+                        <td>Author</td>
+                        <td>:</td>
+                        <td>Veronica Roth</td>
+                    </tr>
+                    <tr><td colspan="4"><hr /></td></tr>
+                    <tr>
+                        <td>Publisher</td>
+                        <td>:</td>
+                        <td>Publisher king</td>
+                    </tr>
+                    <tr><td colspan="4"><hr /></td></tr>
+                    <tr>
+                        <td>Category</td>
+                        <td>:</td>
+                        <td>Science Fiction</td>
+                    </tr>
+                    <tr><td colspan="4"><hr /></td></tr>
+                    <tr>
+                        <td>Regular Price</td>
+                        <td>:</td>
+                        <td>$100</td>
+                    </tr>
+                    <tr><td colspan="4"><hr /></td></tr>
+                    <tr>
+                        <td>% OFF on Sell</td>
+                        <td>:</td>
+                        <td>10</td>
+                    </tr>
+                    <tr><td colspan="4"><hr /></td></tr>
+                    <tr>
+                        <td>Rent Price</td>
+                        <td>:</td>
+                        <td>$5</td>
+                    </tr>
+                    <tr><td colspan="4"><hr /></td></tr>
+                    <tr>
+                        <td>% OFF on Rent</td>
+                        <td>:</td>
+                        <td>5</td>
+                    </tr>
+                    <tr><td colspan="4"><hr /></td></tr>
+                    <tr>
+                        <td>Quantity Available</td>
+                        <td>:</td>
+                        <td>5</td>
+                    </tr>
+                    <tr><td colspan="4"><hr /></td></tr>
+                    <tr>
+                        <td>Shipping Cost</td>
+                        <td>:</td>
+                        <td>$5</td>
+                    </tr>
+                    <tr><td colspan="4"><hr /></td></tr>
+                </table>
+            </td>
+            <td><img src="../../../Resource/Picture/BookPictures/picture_book.jpg" height="200" width="150" /></td>
+        </tr>
+    </table>
+    <hr />
+    @Html.ActionLink("Back to Book List", "SearchBook", "User")
+    <br /><br />
+</fieldset>

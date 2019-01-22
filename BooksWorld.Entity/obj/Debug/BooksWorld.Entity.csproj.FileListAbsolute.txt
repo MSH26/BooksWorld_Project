@@ -1,0 +1,5 @@
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Entity\bin\Debug\BooksWorld.Entity.dll
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Entity\bin\Debug\BooksWorld.Entity.pdb
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Entity\obj\Debug\BooksWorld.Entity.csprojResolveAssemblyReference.cache
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Entity\obj\Debug\BooksWorld.Entity.dll
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Entity\obj\Debug\BooksWorld.Entity.pdb

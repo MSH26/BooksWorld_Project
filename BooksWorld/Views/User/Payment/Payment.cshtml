@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<fieldset>
+    <form method="post">
+        <h4>Please select your payment type and source</h4>
+        Payment Type : 
+        <select>
+            <option>BIKASH</option>
+            <option>BANK</option>
+            <option>ON DELIVERY</option>
+        </select>
+        <br/>
+        Payment Source : <input type="text" value="" />(IF NEEDED!)<br/><br/><br/>
+
+        <h4>Please select one shipment way to recieve the books</h4>
+        Shipment Type : 
+        <select>
+            <option>HOME DELIVERY</option>
+            <option>COLLECT FROM THE STORE</option>
+        </select>
+        <br />
+        Shipment Address : <input type="text" value=""/>(IF NEEDED!)<br/><br/>
+        <input type="submit" value="Submit"> | 
+        @Html.ActionLink("Back", "Cart", "User")
+    </form>
+</fieldset>

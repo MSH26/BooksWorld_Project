@@ -1,0 +1,107 @@
+﻿@model BooksWorld.Models.RegistrationModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    @Html.Raw(@TempData["msg"])
+
+    <fieldset>
+        <legend><b>REGISTRATION</b></legend>
+        <form method="post" enctype="multipart/form-data">
+            <br />
+            <table width="600" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td><input name="name" type="text"></td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>
+                        <input name="email" type="text">
+                        <abbr title="hint: sample@example.com"><b>i</b></abbr>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>User Name</td>
+                    <td>:</td>
+                    <td>
+                        <input name="userName" type="text">
+                        <abbr title="Must contain at least two character"><b>i</b></abbr>
+                    </td>                    
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Password</td>
+                    <td>:</td>
+                    <td>
+                        <input name="password" type="password" value="">
+                        <abbr title="More than seven character with at least one special character(#$%)"><b>i</b></abbr>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Confirm Password</td>
+                    <td>:</td>
+                    <td><input name="confirmPassword" type="password"></td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>:</td>
+                    <td>
+                        <input name="gender" type="radio" value="male">Male
+                        <input name="gender" type="radio" value="female">Female
+                        <input name="gender" type="radio" value="other">Other
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td valign="top">Date of Birth</td>
+                    <td valign="top">:</td>
+                    <td>
+                        <input name="dob" type="text">
+                        <br />
+                        <font size="2"><i>(mm/dd/yyyy)</i></font>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td valign="top">Address</td>
+                    <td valign="top">:</td>
+                    <td>
+                        <input name="address" type="text">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Mobile No</td>
+                    <td>:</td>
+                    <td>
+                        <input name="mobileno" type="text">
+                        <abbr title="Must contain at least 11 digits "><b>i</b></abbr> 
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+            </table>
+            <hr />
+            <input type="submit" value="Submit">
+            <input type="reset">
+        </form>
+    </fieldset>
+</div>
+

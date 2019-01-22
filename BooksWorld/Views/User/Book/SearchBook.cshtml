@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+@Html.Raw(@ViewBag.Msg)
+<fieldset>
+    <legend>
+        <b>BOOK | SEARCH</b>
+    </legend>
+    <form method="post">
+        Filter By
+        <select name="filter">
+            <option>Name</option>
+            <option>Author</option>
+            <option>Publisher</option>
+            <option>Category</option>
+        </select>
+        <input type="text" name="SearchByFilter"/>
+        <input type="submit" value="Search" />
+    </form>
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="center">Name</th>
+        <th align="center">Author</th>
+        <th align="center">Publisher</th>
+        <th align="center">Category</th>
+        <th colspan="2" width="15%">Action</th>
+    </tr>
+    @foreach (var item in ViewBag.BookList)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Author.Name</td>
+            <td>@item.Publication.Name</td>
+            <td>@item.BookCategory.Name</td>
+            <td width="40">@Html.ActionLink("Detail", "BookDetails", "User", new { item.Id }, null)</td>
+            <td width="30">@Html.ActionLink("Add To Cart", "AddToCart", "User", new { item.Id }, null)</td>
+        </tr>
+    }
+</table>
+<br /><hr />
+@Html.ActionLink("Dashboard", "LoggedinDashboard", "User")

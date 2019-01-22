@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<fieldset>This is the msg</fieldset><br />
+<fieldset>
+     @Html.ActionLink("Clear All History", "CartHistory", "User")<a href="cart_history.html"></a>
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <caption><b>Cart Details</b></caption>
+    <tr>
+        <th><center>Title</center></th>
+        <th><center>Title</center></th>
+        <th><center>Category</center></th>
+        <th><center>Rent/Buy</center></th>
+        <th><center>Price</center></th>
+        <th colspan="2" width="10%">Action</th>
+    </tr>
+    @foreach (var cart in ViewBag.CartHistory)
+    {
+        <tr>
+            <td><img src="#" /></td>
+            <td>@cart.Book.Name</td>
+            <td>@cart.Book.BookCategory.Name</td>
+            <td>
+                @if (cart.Type == true)
+                {
+                    @Html.Raw("Buy");
+                }
+                else if (cart.Type == false)
+                {
+                    @Html.Raw("Rent");
+                }
+            </td>
+            <td>@cart.Book.Price</td>
+            <td>@Html.ActionLink("Detail", "OrderBookDetail", "User", new { cart.Book.Id }, null)</td>
+            <td>@Html.ActionLink("Remove", "CartHistory", "User", new { cart.User.Id }, null)</td>
+        </tr>
+    }
+</table>
+<br /><hr />
+@Html.ActionLink("Continue Shopping", "Index", "User")
+@Html.ActionLink("Continue next", "Payment", "User")
+<br /><hr />
+@Html.ActionLink("Dashboard", "LoggedinDashboard", "User")

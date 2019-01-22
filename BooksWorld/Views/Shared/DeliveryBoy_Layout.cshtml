@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Book's World</title>
+	</head>
+	<body>
+		<table width="100%" cellspacing="0" cellpadding="10" border="1">
+			<tr>
+				<td colspan="2" valign="middle" height="70">
+					<table width="100%">
+						<tr>
+							<td>
+								<a href="@Url.Action("Index", "Delivery")">
+									<img height="48" src="../Resource/Picture/LayoutPictures/picture_logo.png" />
+								</a>
+							</td>
+							<td align="right">
+                                Logged in as @Html.ActionLink("Bob", "ViewProfile", "Delivery")&nbsp;|
+                                @Html.ActionLink("Logout", "Index", "Home")
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td width="200" valign="top">
+					<b>&nbsp;@Html.ActionLink("Go Home", "Index", "Delivery")</b><hr />
+					<b>&nbsp;PROFILE</b><hr />
+					<ul>
+                        <li>@Html.ActionLink("Dashboard", "LoggedinDashboard", "Delivery")</a></li>
+                        <li>@Html.ActionLink("View Profile", "ViewProfile", "Delivery")</li>
+                        <li>@Html.ActionLink("Edit Profile", "EditProfile", "Delivery")</li>
+                        <li>@Html.ActionLink("Change Profile Picture", "ProfilePicture", "Delivery")</li>
+                        <li>@Html.ActionLink("Change Password", "ChangePassword", "Delivery")</li>
+					</ul>
+					<hr /><b>&nbsp;SHIPMENT</b><hr />
+					<ul>                
+						
+						<li>@Html.ActionLink("Pending Shipment", "PendingShipment", "Delivery")</li>
+                        <li>@Html.ActionLink("Pending History", "PendingHistory", "Delivery")</li>
+                        <li>@Html.ActionLink("Shipment Report", "ShipmentReport", "Delivery")</li>
+													
+					</ul>				
+					
+				</td>
+				<td valign="top">
+					@RenderBody()
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					Copyright &copy; 2017
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

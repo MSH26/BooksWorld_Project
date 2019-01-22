@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "EditPhoto";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<fieldset>This is message box</fieldset>
+<br />
+<fieldset>
+    <legend><b>PROFILE PICTURE</b></legend>
+    <form>
+        <img width="128" src="../../../Resource/Picture/AllUserPictures/user.png" />
+        <br />
+        <input type="file">
+        <hr />
+        <input type="submit" value="Update">
+        @Html.ActionLink("Go Home", "Index", "Admin")
+    </form>
+
+</fieldset>
+

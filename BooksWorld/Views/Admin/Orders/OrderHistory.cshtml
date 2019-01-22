@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "OderHistory";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<fieldset>This is message box</fieldset>
+<br />
+<form method="post">
+    <fieldset>
+        <legend>
+            <b>PENDING | ORDER</b>
+        </legend>
+        Filter By Date :
+        <input type="date" name="OrderHistoryDate">
+        <input type="submit" value="Search" name="OrderHistoryDateSearch" />
+        <br /><br /><br />
+    </fieldset>  
+
+        @Html.ActionLink("Pending Order", "PendingOrder", "Admin")
+
+    <fieldset>
+        <br />
+        <table width="100%" cellspacing="0" border="1" cellpadding="5">
+            <tr>
+                <th align="left">Invoice No</th>
+                <th align="left">UserName</th>
+                <th align="left">Price</th>
+                <th align="left">Status</th>
+                <th align="left">Date</th>
+                <th colspan="2">Action</th>
+            </tr>
+            @foreach (var invoice in ViewBag.Invoice)
+            {
+                <tr>
+                    @if (invoice.User != null)
+                {
+                        <td> @invoice.Id </td>
+                        <td> @invoice.User.Name </td>
+                    }
+                    else
+                    {
+                        <td>Anonymous user</td>
+                    }
+                    <td> @invoice.GrandPrice </td>
+                    <td>
+                        @if (invoice.Shipment.Status == false && invoice.Payment.Status == false)
+                {
+                            @Html.Raw("Approved");
+                }
+                else if (invoice.Shipment.Status == false && invoice.Payment.Status == true)
+                {
+                            @Html.Raw("On Delivery");
+                }
+                else if (invoice.Shipment.Status == true && invoice.Payment.Status == true)
+                {
+                            @Html.Raw("Delivered");
+                }
+                    </td>
+                    <td>@invoice.InvoiceDate.Date.ToString("dd/MM/yyyy")</td>
+                    <td><a href="#">Detail</a></td>
+
+                </tr>
+            }
+
+        </table>
+    </fieldset>
+</form>
+  

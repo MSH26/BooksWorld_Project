@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Book's World</title>
+</head>
+<body>
+    <table width="100%" cellspacing="0" cellpadding="10" border="1">
+        <tr>
+            <td colspan="2" valign="middle" height="70">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <a href="@Url.Action("Index","Admin")">
+                                <img height="48" src="../Resource/Picture/LayoutPictures/picture_logo.jpg" />
+                            </a>
+                        </td>
+                        <td align="right">
+                            Logged in as @Html.ActionLink("Bob", "/Profiles/Profile", "Admin")&nbsp;|
+                            @Html.ActionLink("Logout", "Index", "Home")
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td width="200" valign="top">
+                <b>&nbsp;@Html.ActionLink("Go Home", "Index", "Admin")</b><hr />
+                <b>&nbsp;PROFILE</b><hr />
+                <ul>
+                    <li>@Html.ActionLink("Dashboard", "Dashboard", "Admin")</li>
+                    <li>@Html.ActionLink("ViewProfile", "ViewProfile", "Admin")</li>
+                    <li>@Html.ActionLink("Edit Profile", "EditProfile", "Admin")</li>
+                    <li>@Html.ActionLink("Change Picure", "EditPhoto", "Admin")</li>
+                    <li>@Html.ActionLink("Change Password", "EditPassword", "Admin")</li>
+                </ul>
+                <hr /><b>&nbsp;ACCOUNT</b><hr />
+                <ul>
+
+                    <li>@Html.ActionLink("Pending Orders", "PendingOrder", "Admin")</li>
+                    <li>@Html.ActionLink("Orders History", "OrderHistory", "Admin")</li>
+                    <li>@Html.ActionLink("Balance", "Balance", "Admin")</li>
+                    <li>@Html.ActionLink("Offers", "Offer", "Admin")</li>
+
+                </ul>
+
+                <hr /><b>&nbsp;Library</b><hr />
+                <ul>
+                    <li>@Html.ActionLink("Book List", "BookList", "Admin")</li>
+                    <li>@Html.ActionLink("Add New Book", "AddNewBook", "Admin")</li>
+                </ul>
+
+                <hr /><b>&nbsp;USERS</b><hr />
+                <ul>
+                    <li>@Html.ActionLink("User List", "UsersList", "Admin")</li>
+                    <li>@Html.ActionLink("Add New User", "AddUser", "Admin")</li>
+                </ul>
+
+                <hr /><b>&nbsp;Report</b><hr />
+                <ul>
+                    <li>
+                        Account Reports
+                        <ul>
+                            <li>@Html.ActionLink("Statistics Report", "StatisticReport", "Admin")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Library Reports
+                        <ul>
+                            <li>@Html.ActionLink("Statistics Report", "LibraryStatisticReport", "Admin")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        User Reports
+                        <ul>
+                            <li>@Html.ActionLink("Statistics Report", "StatisticReport", "Admin")</li>
+                            <li>@Html.ActionLink("Activity Report", "ActivityReport", "Admin")</li>
+                            <li>@Html.ActionLink("Highest Rated Users ", "RatedUser", "Admin")</li>
+                        </ul>
+                    </li>
+                </ul>
+            </td>
+            <td valign="top">
+                @RenderBody()
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                Copyright &copy; 2017
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+@Html.Raw(@TempData["Msg"])
+<fieldset>
+    <legend><b>PROFILE PICTURE</b></legend>
+    <form method="post" enctype="multipart/form-data">
+        <img width="500" height="650" src="@ViewBag.Picture" />
+        <br />
+        <input type="file" title="search image" name="file" /><abbr title=".Jpg , .png, .jpg , .jpeg"><b>i</b></abbr>(Picture name should not have "_" character)
+        <hr />
+        <input type="submit" value="Submit">
+    </form>
+</fieldset>

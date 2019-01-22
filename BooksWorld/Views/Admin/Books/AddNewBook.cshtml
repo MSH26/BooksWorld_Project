@@ -1,0 +1,212 @@
+﻿@model BooksWorld.Models.AddBookModel
+
+@{
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add New Book</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        var author;
+        var publication;
+        var bookCategory;
+
+        $(document).ready(function () {
+
+            function dialogueBoxInitializer(data) {
+                $("#dialogue").dialog({
+                    autoOpen: false,
+                    modal: true,
+                    width: 500,
+                    title: data
+                });
+            }
+
+            $("#showAuthors").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/ShowAuthors",
+                    contentType: "application/json",
+                    dataType: "html",
+                    success: function (response) {
+                        dialogueBoxInitializer("Authors");
+                        $("#dialogue").html(response);
+                        $("#dialogue").dialog('open');
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+
+            $("#showPublications").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/ShowPublications",
+                    contentType: "application/json",
+                    dataType: "html",
+                    success: function (response) {
+                        dialogueBoxInitializer("Publicatios");
+                        $("#dialogue").html(response);
+                        $("#dialogue").dialog('open');
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+
+            $("#showBookCategory").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/ShowBookCategories",
+                    contentType: "application/json",
+                    dataType: "html",
+                    success: function (response) {
+                        dialogueBoxInitializer("Book Category");
+                        $("#dialogue").html(response);
+                        $("#dialogue").dialog('open');
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+
+            $("#showOffers").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/ShowOffers",
+                    contentType: "application/json",
+                    dataType: "html",
+                    success: function (response) {
+                        dialogueBoxInitializer("Offers");
+                        $("#dialogue").html(response);
+                        $("#dialogue").dialog('open');
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+
+            //$("#bookAddButton").click(function () {
+            //    alert("Dat");
+            //    $.post("/Admin/AddNewBook",
+            //    {"Id": 0, Name: $("#name").attr("value"), "Author": author,
+            //    "Publication": publication, "Price": $("#price").attr("value"),
+            //    "AvailableQuantity": $("#quantity").attr("value"),
+            //    "BookCategory": bookCategory, "Picture": $("#picture").attr("value"),
+            //    "Description": $("#description").attr("value"), "AddDate": null},
+            //    function (data, status)
+            //    {
+            //        alert("Data: " + data + "\nStatus: " + status);
+            //    });
+            //    alert("Datat");
+            //});
+
+        });
+    </script>
+
+</head>
+
+<body>
+    @TempData["msg"]
+    <fieldset>
+        <legend><b>ADD BOOK</b></legend>
+        <form method="post" enctype="multipart/form-data">
+            <br />
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td><input name="name" id="name" type="text" value=""></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Author</td>
+                    <td>:</td>
+                    <td>
+                        <a id="authorId" name="authorId"></a>
+                        <input type="button" id="showAuthors" value="Add author" />
+                    </td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Publisher</td>
+                    <td>:</td>
+                    <td>
+                        <a id="publicationId" name="publicationId"></a>
+                        <input type="button" id="showPublications" value="Add publisher" />
+                    </td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Category</td>
+                    <td>:</td>
+                    <td>
+                        <a id="categoryId" name="categoryId"></a>
+                        <input type="button" id="showBookCategory" value="Add book category" />
+                    </td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Regular Price</td>
+                    <td>:</td>
+                    <td>
+                        <input name="price" id="price" type="text" value="">
+                    </td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Description</td>
+                    <td>:</td>
+                    <td>
+                        <input name="description" id="description" type="text" value="">
+                    </td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td>:</td>
+                    <td>
+                        <input name="quantity" id="quantity" type="text" value="" />
+                    </td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Book Image</td>
+                    <td>:</td>
+                    <td>
+                        <input type="file" id="picture" name="picture">
+                    </td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+            </table>
+            <hr />
+            <input type="submit" value="ADD" id="bookAddButton">
+            @Html.ActionLink("Book List", "BookList", "Admin")
+            <div id="dialogue" style="display: none; background-color: green">
+            </div>
+        </form>
+    </fieldset>
+</body>
+</html>

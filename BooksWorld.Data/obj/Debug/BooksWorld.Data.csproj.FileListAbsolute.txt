@@ -1,0 +1,12 @@
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\bin\Debug\BooksWorld.Data.dll.config
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\bin\Debug\BooksWorld.Data.dll
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\bin\Debug\BooksWorld.Data.pdb
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\bin\Debug\BooksWorld.Entity.dll
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\bin\Debug\EntityFramework.dll
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\bin\Debug\BooksWorld.Entity.pdb
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\bin\Debug\EntityFramework.xml
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\obj\Debug\BooksWorld.Data.csprojResolveAssemblyReference.cache
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\obj\Debug\BooksWorld.Data.dll
+D:\9th Semister\ADVANCED TOPICS IN PROGRAMMING II\Work_Place\Project_MID\BooksWorld_Project\BooksWorld.Data\obj\Debug\BooksWorld.Data.pdb

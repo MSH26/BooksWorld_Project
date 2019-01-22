@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+@Html.Raw(@ViewBag.Msg)
+<fieldset>
+    <legend>
+        <b>ORDER | HISTORY</b>
+    </legend>
+    <form method="post" action="../User/SearchOrderHistoryByFilter">
+        Filter By
+        <select name="filter">
+            <option>ORDER TYPE</option>
+            <option>STATUS</option>
+            <option>NAME</option>
+        </select>
+        <input type="text" value="" placeholder="Search By Book Name" name="SearchByBookName" />
+        <input type="submit" value="Search" />
+    </form>
+</fieldset>
+<br />
+<fieldset>
+    @Html.ActionLink("Pending Order", "PendingOrder", "User")
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="center">Image</th>
+        <th align="center">Name</th>
+        <th align="center">Order Type</th>
+        <th align="center">Unit Price</th>
+        <th align="center">Quantity</th>
+        <th align="center">Total Price</th>
+        <th align="center">Status</th>
+        <th align="center">Action</th>
+    </tr>
+    @foreach (var order in ViewBag.Orders)
+    {
+        <tr>
+            <td><img src="#" /></td>
+            <td>@order.Book.Name</td>
+            <td>
+                @if (order.Type == true)
+                {
+                    @Html.Raw("Buy");
+                }
+                else if (order.Type == false)
+                {
+                    @Html.Raw("Rent");
+                }
+            </td>
+            <td>@order.UnitPrice</td>
+            <td>@order.Quantity</td>
+            <td>@order.TotalPrice</td>
+            <td>
+                
+                @if (@order.Invoice.Status == true)
+                {
+                    if (order.Invoice.Shipment.Status == false && order.Invoice.Payment.Status == false)
+                    {
+                        @Html.Raw("Approved");
+                    }
+                    else if (order.Invoice.Shipment.Status == false && order.Invoice.Payment.Status == true)
+                    {
+                        @Html.Raw("On Delivery");
+                    }
+                    else if (order.Invoice.Shipment.Status == true && order.Invoice.Payment.Status == true)
+                    {
+                        @Html.Raw("Delivered");
+                    }
+                }
+                else
+                {
+                    @Html.Raw("Pending");
+                }
+            </td>
+            <td>@Html.ActionLink("Book Detail", "OrderBookDetail", "User", new { order.Book.Id }, null)</td>
+        </tr>
+    }
+</table>
+<br /><hr />
+@Html.ActionLink("Dashboard", "LoggedinDashboard", "User")

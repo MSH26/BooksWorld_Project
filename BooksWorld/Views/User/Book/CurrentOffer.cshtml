@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<fieldset>
+    <legend>
+        CURRENT OFFERS
+    </legend>
+    <form method="post">
+        Filter By
+        <select>
+            <option>BOOK</option>
+            <option>CATEGORY</option>
+            <option>AUTHOR</option>
+            <option>PUBLISHER</option>
+        </select>
+        <input type="submit" value="Show" /><br /><br />
+    </form>
+
+    <table width="100%" cellspacing="0" border="1" cellpadding="5">
+        <tr>
+            <th align="center">Title</th>
+            <th align="center">Author</th>
+            <th align="center">Publisher</th>
+            <th align="center">Category</th>
+            <th align="center">% Off</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Divergent</td>
+            <td>Veronica Roth</td>
+            <td>Publisher king</td>
+            <td>Science Fiction</td>
+            <td>5%</td>
+            <td>@Html.ActionLink("Add To Cart", "AddToCart", "User")</td>
+        </tr>
+    </table>
+</fieldset>
+<br /><hr />
+@Html.ActionLink("Go Home", "Index", "User")
+@Html.ActionLink("Dashboard", "LoggedinDashboard", "User")

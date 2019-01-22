@@ -1,0 +1,58 @@
+﻿<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+        $(".setAuthor").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AddAuthor",
+                contentType: "application/json",
+                accept: "application/json",
+                data: '{authorId: "' + $(this).attr("data-value") + '" }',
+                dataType: "html",
+                success: function (data, status) {
+                    author = data;
+                    json = JSON.parse(data);
+                    $("#authorId").text(json.Name);
+                    $("#authorId").attr("value", json.Id);
+                    $("#showAuthors").attr("value", "Change");
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+</script>
+
+
+<fieldset>
+    <legend>
+        <b>AUTHOR | SEARCH</b>
+    </legend>
+    <input type="text" name="authorSearchBox"/>
+    <input type="button" value="authorSearchButton" />
+    @Html.ActionLink("Add New Author", "AddNewAuthor", "Admin")
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="left">Name</th>
+        <th align="left">Email</th>
+        <th align="left">Gender</th>
+        <th colspan="1"></th>
+    </tr>
+    @foreach (var author in ViewBag.Authors)
+    {
+        <tr>
+            <td>@author.Name</td>
+            <td>@author.Email</td>
+            <td>@author.Gender</td>
+            <td>
+                <a class="setAuthor" data-value="@author.Id">Set</a>
+            </td>
+        </tr>
+    }
+</table>

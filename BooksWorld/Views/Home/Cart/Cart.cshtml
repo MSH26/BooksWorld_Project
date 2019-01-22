@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <caption><b>Cart Details</b></caption>
+    <tr>
+        <th><center>Title</center></th>
+        <th><center>Category</th>
+        <th><center>Rent/Buy</th>
+        <th><center>Price</th>
+        <th width="10%">Action</th>
+    </tr>
+    <tr>
+        <td>Introduction to Database</td>
+        <td>Database</td>
+        <td>Buy</td>
+        <td>$10</td>
+        <td>@Html.ActionLink("Remove", "Cart", "Home")</td>
+    </tr>
+    <tr>
+        <td>Theory Of Computation</td>
+        <td>TOC</td>
+        <td>Rent</td>
+        <td>$12</td>
+        <td>@Html.ActionLink("Remove", "Cart", "Home")</td>
+    </tr>
+</table></br>
+@Html.ActionLink("Continue Shopping", "Index", "Home")
+@Html.ActionLink("Continue next", "Payment", "Home")
+

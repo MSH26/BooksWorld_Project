@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show Book Category</title>
+</head>
+<body>
+    <div>
+        <fieldset>
+            <legend>
+                <b>Offers</b>
+            </legend>
+            @Html.ActionLink("Add New Book Category", "AddBookCategory", "Admin")
+        </fieldset>
+        <br />
+        <table width="100%" cellspacing="0" border="1" cellpadding="5">
+            <tr>
+                <th align="left">Name</th>
+                <th align="left">Email</th>
+                <th align="left">Gender</th>
+                <th colspan="1"></th>
+            </tr>
+            @foreach (var offer in ViewBag.Offers)
+            {
+                <tr>
+                    <td>@offer.Percentage</td>
+                    <td>@offer.Amount</td>
+                    <td>
+                        @if(@offer.Status == true){
+                            
+                        }
+                    </td>
+                    <td>
+                        <a id="setBookCategory" data-value="@bookCategory.Id">Set</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Offer";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<fieldset>
+    <legend>
+        CURRENT OFFERS
+    </legend>
+    Filter By
+    <select>
+        <option>BOOK</option>
+        <option>CATEGORY</option>
+        <option>AUTHOR</option>
+        <option>PUBLISHER</option>
+    </select>
+    <input type="submit" value="Show" /><br /><br />
+
+    <table width="100%" cellspacing="0" border="1" cellpadding="5">
+        <tr>
+            <th align="center">Title</th>
+            <th align="center">Author</th>
+            <th align="center">Publisher</th>
+            <th align="center">Category</th>
+            <th align="center">% Off</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Divergent</td>
+            <td>Veronica Roth</td>
+            <td>Publisher king</td>
+            <td>Science Fiction</td>
+            <td>5%</td>
+            <td>@Html.ActionLink("Cancel", "Index", "Admin")</a></td>
+        </tr>
+    </table>
+</fieldset>
+<br />
+<fieldset>
+    <legend>
+        SET OFFERS
+    </legend>
+    <form>
+        Offer For All Category : <br />
+        % Off : <input type="text" /> <input type="button" Value="Set"><br /><br />
+
+        Offer For Specific Category : <br />
+        Category Name : <input type="text" /><br />
+        % Off : <input type="text" /> <input type="button" Value="Set"><br /><br />
+
+        Offer For Specific Book : <br />
+        Book Name : <input type="text" /><br />
+        % Off : <input type="text" /> <input type="button" Value="Set"><br /><br />
+
+        Offer For Specific Author's Book : <br />
+        Author Name : <input type="text" /><br />
+        % Off : <input type="text" /> <input type="button" Value="Set"><br /><br />
+
+        Offer For Specific Publisher's Book : <br />
+        Publisher Name : <input type="text" /><br />
+        % Off : <input type="text" /> <input type="button" Value="Set"><br /><br />
+    </form>
+</fieldset>
+<br /><hr />
+@Html.ActionLink("Go Home", "Index", "Admin")

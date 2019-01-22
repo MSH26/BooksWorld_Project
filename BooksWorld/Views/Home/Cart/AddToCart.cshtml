@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset>
+    <h1 align="center">ADD TO CART</h1>
+    <hr />
+    <form method="post">
+        <table>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>BOOK NAME</td>
+                                        <td> : </td>
+                                        <td>@ViewBag.BookCart.Name</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td></tr>
+                                    <tr>
+                                        <td>PRICE</td>
+                                        <td> : </td>
+                                        <td>BDT @ViewBag.BookCart.Price</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td></tr>
+                                    <tr>
+                                        <td>CATEGORY</td>
+                                        <td> : </td>
+                                        <td>@ViewBag.BookCart.BookCategory.Name</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td></tr>
+                                    <tr>
+                                        <td>AUTHOR</td>
+                                        <td> : </td>
+                                        <td>@ViewBag.BookCart.Author.Name</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td></tr>
+                                    <tr>
+                                        <td>PUBLISHER</td>
+                                        <td> : </td>
+                                        <td>@ViewBag.BookCart.Publication.Name</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td></tr>
+                                </table>
+                            </td>
+                            <td>
+                                <img src="../../../../Resource/Picture/BookPictures/picture_book.jpg" height="200" width="130">
+                            </td>
+                        </tr>
+                    </table>
+                <td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="BUY" /> |
+                    @Html.ActionLink("Go To this Category", "CategoryBook", "Home", new { ViewBag.BookCart.BookCategory.Id }, null)
+                </td>
+            </tr>
+        </table>
+    </form>
+</fieldset>

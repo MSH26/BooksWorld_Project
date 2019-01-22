@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = "~/Views/Shared/DeliveryBoy_Layout.cshtml";
+}
+
+<fieldset>
+    <legend>
+        <b>BOOK | SEARCH</b>
+    </legend>
+    <form>
+        Filter By
+        <select>
+            <option>Name</option>
+            <option>Author</option>
+            <option>Publisher</option>
+        </select>
+        <input />
+        <input type="submit" value="Search" />
+    </form>
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="left">Image</th>
+        <th align="left">Name</th>
+        <th align="left">Author</th>
+        <th align="left">Publisher</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td><img src="#" /></td>
+        <td>Divergent</td>
+        <td>Veronica Roth</td>
+        <td>Publisher king</td>
+        <td>@Html.ActionLink("Detail", "BookDetails", "Delivery")</td>
+    </tr>
+    <tr>
+        <td><img src="#" /></td>
+        <td>Brave New World</td>
+        <td>Aldous Huxley</td>
+        <td>Publisher king</td>
+        <td>@Html.ActionLink("Detail", "BookDetails", "Delivery")</td>
+    </tr>
+    <tr>
+        <td><img src="#" /></td>
+        <td>The Handmaid's Tale</td>
+        <td>Margaret Atwood</td>
+        <td>Publisher king</td>
+        <td>@Html.ActionLink("Detail", "BookDetails", "Delivery")</td>
+    </tr>
+</table>
+<br /><hr />
+@Html.ActionLink("Go Home", "Index", "Delivery")
+@Html.ActionLink("Dashboard", "LoggedinDashboard", "Delivery")

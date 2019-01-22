@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "UsersList";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@Html.Raw(@TempData["msg"])
+
+<fieldset>
+    <legend>
+        <b>USER | SEARCH</b>
+    </legend>
+    Filter By
+    <select>
+        <option>Any</option>
+        <option>Name</option>
+        <option>Email</option>
+        <option>Status</option>
+    </select>
+    <input />
+    <input type="submit" value="Search" />
+    @Html.ActionLink("Create New", "AddUser", "Admin")
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="left">NAME</th>
+        <th align="left">BUY</th>
+        <th align="left">RENT</th>
+        <th colspan="3">Action</th>      
+    </tr>
+        
+        @foreach (var user in ViewBag.Users)
+        {
+            <tr>
+                <td>@user.Name</td>
+                @{
+                        double Buy = 0; 
+                        double Rent = 0;
+                }
+                @foreach (var invoice in user.Invoices)
+                {
+
+                    foreach (var order in invoice.Orders)
+                    {
+                        if (order.Type == true)
+                        {
+                            Buy += order.TotalPrice;
+
+
+                        }
+                        else if (order.Type == false)
+                        {
+
+                           Rent += order.TotalPrice;
+                        }
+                    }
+                }
+                <td>@Buy</td>
+                <td>@Rent</td>
+                <td width="40">@Html.ActionLink("Detail", "DetailUser", "Admin", new { user.Id }, null)</td>
+                <td width="30">@Html.ActionLink("Edit", "EditUser", "Admin", new { user.Id }, null)</td>
+                <td width="45">@Html.ActionLink("Delete", "DeleteUser", "Admin", new { user.Id }, null)</td>
+            </tr>
+
+        }
+        
+    
+</table>
+

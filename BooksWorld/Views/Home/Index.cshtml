@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+
+
+<body>
+    @Html.ActionLink("Cart", "Cart", "Home")
+    <div>
+        <img style="width:370px; margin:30px auto; display:block" src="../../Resource/Picture/LayoutPictures/Home.PNG" />
+        <form method="post">
+            <input placeholder="Search Book" style="width:550px; height: 25px; margin:59px auto 0 auto; display:block; border: 1px solid #3492F7; " type="text" />
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+
+
+
+    @foreach (var category in ViewBag.List)
+    {
+        <table border="1" width="100%" height="200"> 
+            <tr>
+                <td>
+                    <table border="1" width="100%" height="180">
+                        <tr>
+                            @foreach (var book in category.Books)
+                            {
+                                <td width="100%" height="180">
+                                    <img src="@book.Picture" height="100" width="100" /><br />
+                                    @Html.ActionLink((string)book.Name, "BookDetails", "Home",new {book.Id},null )<br />
+                                    @Html.ActionLink("Add To Cart", "BookAddToCart", "Home", new { book.Id }, null)
+                                </td>
+                            }
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    @category.Name <br />
+                    @category.Description <br />
+                    @Html.ActionLink("Browse now", "CategoryBook", "Home")
+                </td>
+            </tr>
+        </table>
+        }
+</body>
+</html>

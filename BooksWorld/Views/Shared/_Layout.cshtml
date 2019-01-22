@@ -1,0 +1,30 @@
+﻿<table width="100%" align="center" cellspacing="0" cellpadding="10" border="1">
+    <tr>
+        <td valign="middle" height="70">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <a href="@Url.Action("Index", "Home")">
+                            <img height="48" src="../Resource/Picture/LayoutPictures/picture_logo.jpg" />
+                        </a>
+                    </td>
+                    <td align="right">
+                        @Html.ActionLink("Home","Index", "Home")&nbsp;|
+                        @Html.ActionLink("Login", "Login", "Home")&nbsp;|
+                        @Html.ActionLink("Registration", "Registration", "Home")
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            @RenderBody()<br /><br /><br />
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            Copyright &copy; 2017
+        </td>
+    </tr>
+</table>

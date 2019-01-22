@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<fieldset>This is the msg</fieldset><br />
+<fieldset>
+    @Html.ActionLink("Order History", "OrderHistory", "User") |
+    @Html.ActionLink("Dashboard", "LoggedinDashboard", "User")
+</fieldset>
+<br />
+<fieldset>
+    <legend>
+        <b>PENDING | ORDER</b>
+    </legend>
+    <form method="post" action="../User/SearchPendingOrderByFilter">
+        Filter By Order Type :
+        <select name="filter">
+            <option>Buy</option>
+            <option>Rent</option>
+        </select>
+        <input type="text" value="" placeholder="Search By Book Name" name="SearchByBookName" />
+        <input type="submit" value="Search" />
+    </form>
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="center">Image</th>
+        <th align="center">Name</th>
+        <th align="center">Order Type</th>
+        <th align="center">Unit Price</th>
+        <th align="center">Quantity</th>
+        <th align="center">Total Price</th>
+        <th align="center">Status</th>
+        <th align="center" colspan="2">Action</th>
+    </tr>
+    @foreach (var pendingOrders in ViewBag.PendingOrders)
+    {
+        <tr>
+            <td><img src="#" /></td>
+            <td>@pendingOrders.Book.Name</td>
+            <td>
+                @if (pendingOrders.Type == true)
+                {
+                    @Html.Raw("Buy");
+                }
+                else if (pendingOrders.Type == false)
+                {
+                    @Html.Raw("Rent");
+                }
+            </td>
+            <td>@pendingOrders.UnitPrice</td>
+            <td>@pendingOrders.Quantity</td>
+            <td>@pendingOrders.TotalPrice</td>
+            <td>Pending</td>
+            <td>@Html.ActionLink("Book Detail", "OrderBookDetail", "User", new { pendingOrders.Book.Id }, null)</td>
+            <td>@Html.ActionLink("Cancel", "CancelOrder", "User", new { pendingOrders.Id }, null)</td>
+        </tr>
+    }
+</table>

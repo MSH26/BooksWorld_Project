@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "PendingOrder";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@Html.Raw(@TempData["msg"])
+<br />
+<form method="post">
+    <fieldset>
+        <legend>
+            <b>PENDING | ORDER</b>
+        </legend>
+        Filter By Date :
+        <input type="date" name="pendingOrderDate">
+        <input type="submit" value="Search" name="pendingOrderDateSearch"/>
+        <br /><br /><br />
+    </fieldset>    
+</form>
+    @Html.ActionLink("Order History", "OrderHistory", "Admin")
+   
+<fieldset>
+    <br />
+    <table width="100%" cellspacing="0" border="1" cellpadding="5">
+        <tr>
+            <th align="left">Invoice NO</th>
+            <th align="left">User Name</th>
+            <th align="left">Grad Price</th>
+            <th align="left">Invoice Date</th>
+            <th colspan="3">Action</th>
+        </tr>
+        @foreach (var item in ViewBag.Invoice)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.User.Name</td>
+                <td>@item.GrandPrice</td>
+                <td>@item.InvoiceDate.Date</td>
+                <td width="60"><a href="#">Detail</a></td>
+                <td width="40">@Html.ActionLink("Approve", "ApprovedById", "Admin", new { @item.Id }, null)</td>
+                <td width="40">@Html.ActionLink("Cancel", "CancelById", "Admin", new { @item.Id }, null)</td>
+
+            </tr>
+        }
+    </table>
+</fieldset>

@@ -1,0 +1,56 @@
+﻿@model BooksWorld.Models.UserProfile.EditProfileModel
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+@Html.Raw(@TempData["msg"])
+<br />
+<fieldset>
+    <legend><b>EDIT PROFILE</b></legend>
+    <form method="post">
+        <br />
+        <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>Name</td>
+                <td>:</td>
+                <td><input name="name" type="text" value="@Html.DisplayFor(model => model.Name)"></td>
+                <td></td>
+            </tr>
+            <tr><td colspan="4"><hr /></td></tr>
+            <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td>
+                    <input name="email" type="text" value="@Html.DisplayFor(model => model.Email)">
+                    <abbr title="hint: sample@example.com"><b>i</b></abbr>
+                </td>
+                <td></td>
+            </tr>
+            <tr><td colspan="4"><hr /></td></tr>
+            <tr>
+                <td>Gender</td>
+                <td>:</td>
+                <td>
+                    <input name="gender" type="radio">Male
+                    <input name="gender" type="radio">Female
+                    <input name="gender" type="radio">Other
+                </td>
+                <td></td>
+            </tr>
+            <tr><td colspan="4"><hr /></td></tr>
+            <tr>
+                <td valign="top">Date of Birth</td>
+                <td valign="top">:</td>
+                <td>
+                    <input name="dob" type="text" value="@Html.DisplayFor(model => model.Dob.Date)">
+                    <br />
+                    <font size="2"><i>(dd/mm/yyyy)</i></font>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        <hr />
+        <input type="submit" value="Save">
+        @Html.ActionLink("Dashboard", "LoggedinDashboard", "User")
+    </form>
+</fieldset>

@@ -1,0 +1,11 @@
+﻿
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<fieldset align="center">
+    <h6>Are you sure?</h6>
+    @Html.ActionLink("Yes", "PendingOrder", "User") | 
+    @Html.ActionLink("No", "Cart", "User")
+</fieldset>
+

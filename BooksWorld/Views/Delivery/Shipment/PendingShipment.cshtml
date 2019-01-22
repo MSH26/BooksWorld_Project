@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = "~/Views/Shared/DeliveryBoy_Layout.cshtml";
+}
+
+<fieldset>This is message box</fieldset>
+<br />
+<fieldset>
+    <legend>
+        <b>PENDING | ORDER</b>
+    </legend>
+    Filter By
+    <select>
+        <option>USER NAME</option>
+        <option>Order TYPE</option>
+        <option>PRICE</option>
+        <option>Address</option>
+    </select>
+    <input />
+    <input type="submit" value="Search" />
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="left">UserName</th>
+        <th align="left">Order Type</th>
+        <th align="left">Amount</th>
+        <th align="left">Address</th>
+        <th align="left">Payment Status</th>
+        <th colspan="2">Shipment Status</th>
+    </tr>
+    <tr>
+        <td>Bob</td>
+        <td>Buy</td>
+        <td>$215</td>
+        <td>Jamuna,sanabor</td>
+        <td>paid by bikash</a></td>
+        <td>@Html.ActionLink("Confirm", "PendingShipment", "Delivery")</td>
+        <td>@Html.ActionLink("Cancel", "PendingShipment", "Delivery")</td>
+    </tr>
+    <tr>
+        <td>Anne</td>
+        <td>Buy</td>
+        <td>$215</td>
+        <td>Bosun,sanabor</td>
+        <td>paid by bank account</td>
+        <td>@Html.ActionLink("Confirm", "PendingShipment", "Delivery")</td>
+        <td>@Html.ActionLink("Cancel", "PendingShipment", "Delivery")</td>
+    </tr>
+    <tr>
+        <td>Smith</td>
+        <td>Buy</td>
+        <td>$215</td>
+        <td>sanabor,jomuna</td>
+        <td>On Delivery</td>
+        <td>@Html.ActionLink("Confirm", "PendingShipment", "Delivery")</td>
+        <td>@Html.ActionLink("Cancel", "PendingShipment", "Delivery")</td>
+    </tr>
+</table>

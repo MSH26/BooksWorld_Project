@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "InValidAccess";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sorry you are not loggedin. Please @Html.ActionLink("sign in", "Login", "Home") or @Html.ActionLink("Go To Register", "Registration", "Home")</h2><br/>
+
+@Html.ActionLink("Go To Home", "Index", "Home")

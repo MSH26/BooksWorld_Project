@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "BooksAdd";
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+
+    <script>
+function show(e){
+	if(e.value == "Today"){
+		filter.innerHTML="Books Added Today";
+	}
+	else if(e.value == "Last Week"){
+		filter.innerHTML="Books Added Last Week";
+	}
+	else if(e.value == "Last Month"){
+		filter.innerHTML="Books Added Last Month";
+	}
+	else if(e.value == "Last Year"){
+		filter.innerHTML="Books Added Last Year";
+	}
+}
+    </script>
+
+</head>
+<body>
+    <fieldset>
+        Filter By
+        <select onchange="show(this)">
+            <option>Today</option>
+            <option>Last Week</option>
+            <option>Last Month</option>
+            <option>Last Year</option>
+        </select>
+        <center><font size="3"><a id="filter">Books Added Today</a></font></center>
+        <hr />
+        <table style="width:100%">
+            <tr>
+                <th><center>Book Id</th>
+                <th><center>Book Name</center></th>
+                <th><center>Author Name</th>
+                <th><center>Quantity</th>
+                <th><center>Details</th>
+            </tr>
+            <tr>
+                <td>Abc</td>
+                <td>XYZ</td>
+                <td>001</td>
+                <td>4</td>
+                <td><a href="#">detail</a></td>
+            </tr>
+        </table></br>
+    </fieldset>
+</body>
+</html>

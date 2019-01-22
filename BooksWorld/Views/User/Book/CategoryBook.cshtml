@@ -1,0 +1,40 @@
+﻿<fieldset>
+    <legend>
+        <b>BOOK | SEARCH</b>
+    </legend>
+    Filter By
+    <select>
+        <option>Name</option>
+        <option>Author</option>
+        <option>Publisher</option>
+    </select>
+    <input />
+    <input type="submit" value="Search" />
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="left">Image</th>
+        <th align="left">Name</th>
+        <th align="left">Author</th>
+        <th align="left">Publisher</th>
+        <th colspan="2" width="10%">Action</th>
+    </tr>
+    @{
+        foreach (var item in ViewBag.Cat)
+        {
+            <tr>
+                <td><img src="#" /></td>
+                <td>@item.Name</td>
+                <td>@item.Author.Name</td>
+                <td>@item.Publication.Name</td>
+                <td>@Html.ActionLink("Details", "BookDetail", "User", new { item.Id }, null)</td>
+                <td>@Html.ActionLink("Add To Cart", "AddToCart", "User", new { item.Id }, null)</td>
+            </tr>
+        }
+    }
+
+</table>
+<br /><hr />
+@Html.ActionLink("Go To Home", "Index", "User")
+@Html.ActionLink("Dashboard", "LoggedinDashboard", "User")

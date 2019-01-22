@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+@Html.Raw(@ViewBag.Msg)
+<fieldset>
+    <h1 align="center">ADD TO CART</h1>
+    <hr />
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>BOOK NAME</td>
+                                        <td> : </td>
+                                        <td>@ViewBag.BookCart.Name</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td></tr>
+                                    <tr>
+                                        <td>CATEGORY</td>
+                                        <td> : </td>
+                                        <td>@ViewBag.BookCart.BookCategory.Name</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td></tr>
+                                    <tr>
+                                        <td>AUTHOR</td>
+                                        <td> : </td>
+                                        <td>@ViewBag.BookCart.Author.Name</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td></tr>
+                                    <tr>
+                                        <td>PUBLISHER</td>
+                                        <td> : </td>
+                                        <td>@ViewBag.BookCart.Publication.Name</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td></tr>
+                                    <tr>
+                                        <td>PRICE</td>
+                                        <td> : </td>
+                                        <td>BDT @ViewBag.BookCart.Price</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td></tr>
+                                    <tr>
+                                        <td>RENT CHARGE</td>
+                                        <td> : </td>
+                                        <td>$5</td>
+                                    </tr>
+                                    <tr><td colspan="4"><hr /></td>
+                                </table>
+                            </td>
+                            <td>
+                                <img src="../../../../Resource/Picture/BookPictures/picture_book.jpg" height="200" width="130">
+                            </td>
+                        </tr>
+                    </table>
+                <td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("BUY", "BuyCart", "User", new { ViewBag.BookCart.Id }, null) |
+                    @Html.ActionLink("RENT", "RentCart", "User", new { ViewBag.BookCart.Id }, null) |
+                    @Html.ActionLink("Go Home", "Index", "User") | 
+                    @Html.ActionLink("Go To this Category", "CategoryBook", "User", new { ViewBag.BookCart.BookCategory.Id }, null)
+                </td>
+            </tr>
+        </table>
+    </form>
+</fieldset>

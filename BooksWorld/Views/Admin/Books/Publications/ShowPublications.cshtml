@@ -1,0 +1,57 @@
+﻿<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    $(".setPublication").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AddPublication",
+                contentType: "application/json",
+                accept: "application/json",
+                data: '{publicationId: "' + $(this).attr("data-value") + '" }',
+                dataType: "html",
+                success: function (data, status) {
+                    publication = data;
+                    json = JSON.parse(data);
+                    $("#publicationId").text(json.Name);
+                    $("#publicationId").attr("value", json.Id);
+                    $("#showPublications").attr("value", "Change");
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+</script>
+
+<fieldset>
+    <legend>
+        <b>PUBLICATION | SEARCH</b>
+    </legend>
+    <input type="text" name="publicationSearchBox" />
+    <input type="button" value="publicationSearchButton" />   
+    @Html.ActionLink("Add New Publication", "AddPublication", "Admin")
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="left">Name</th>
+        <th align="left">Email</th>
+        <th align="left">Mobile No.</th>
+        <th colspan="1"></th>
+    </tr>
+    @foreach (var publication in ViewBag.Publications)
+    {
+        <tr>
+            <td>@publication.Name</td>
+            <td>@publication.Email</td>
+            <td>@publication.MobileNo</td>
+            <td>
+                <a class="setPublication" data-value="@publication.Id">Set</a>
+            </td>
+        </tr>
+    }
+</table>

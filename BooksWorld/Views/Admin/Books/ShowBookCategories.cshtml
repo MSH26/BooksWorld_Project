@@ -1,0 +1,55 @@
+﻿<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    $(".setBookCategory").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AddBookCategory",
+                contentType: "application/json",
+                accept: "application/json",
+                data: '{BookCategoryId: "' + $(this).attr("data-value") + '" }',
+                dataType: "html",
+                success: function (data, status) {
+                    bookCategory = data;
+                    json = JSON.parse(data);
+                    $("#categoryId").text(json.Name);
+                    $("#categoryId").attr("value", json.Id);
+                    $("#showBookCategory").attr("value", "Change");
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+</script>
+
+<fieldset>
+    <legend>
+        <b>BOOK CATEGORY | SEARCH</b>
+    </legend>
+    <input type="text" name="BookCategorySearchBox" />
+    <input type="button" value="BookCategorySearchButton" />
+    @Html.ActionLink("Add New Book Category", "AddBookCategory", "Admin")
+</fieldset>
+<br />
+<table width="100%" cellspacing="0" border="1" cellpadding="5">
+    <tr>
+        <th align="left">Name</th>
+        <th align="left">Description</th>
+        <th colspan="1"></th>
+    </tr>
+    @foreach (var bookCategory in ViewBag.BookCategories)
+    {
+        <tr>
+            <td>@bookCategory.Name</td>
+            <td>@bookCategory.Description</td>
+            <td>
+                <a class="setBookCategory" data-value="@bookCategory.Id">Set</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "demo";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@{ 
+    var date = ViewBag.User.DateOfBirth;
+
+}
+
+<fieldset>
+    <legend><b>PROFILE</b></legend>
+    <form>
+        <br />
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="100"></td>
+                <td width="10"></td>
+                <td width="230"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>User Name</td>
+                <td>:</td>
+                <td>@ViewBag.User.UserName</td>
+            </tr>
+            <tr><td colspan="3"><hr /></td></tr>
+            <tr>
+                <td>Name</td>
+                <td>:</td>
+                <td>@ViewBag.User.Name</td>
+                <td rowspan="7" align="center">
+                    <img width="128" src="../../../Resource/Picture/AllUserPictures/user.png" />
+                    <br />
+                    @Html.ActionLink("Change Picure", "EditPhoto", "Admin")
+                </td>
+            </tr>
+            <tr><td colspan="3"><hr /></td></tr>
+            <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td>@ViewBag.User.Email</td>
+            </tr>
+            <tr><td colspan="3"><hr /></td></tr>
+            <tr>
+                <td>Gender</td>
+                <td>:</td>
+                <td>@ViewBag.User.Gender</td>
+            </tr>
+            <tr><td colspan="3"><hr /></td></tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td>:</td>
+                <td>@ViewBag.User.DateOfBirth.Date.ToString("dd/MMM/yyyy")</td>
+            </tr>
+            <tr><td colspan="3"><hr /></td></tr>
+            <tr>
+                <td>Role</td>
+                <td>:</td>
+                <td>@ViewBag.User.Role</td>
+            </tr>
+            <tr><td colspan="3"><hr /></td></tr>
+            <tr>
+                <td>Status</td>
+                <td>:</td>
+                <td>
+                    @if (ViewBag.User.Status)
+                    {
+                        <a>Active</a>
+                    }
+                    else
+                    {
+                        <a>Inactive</a>
+                    }
+                </td>
+            </tr>
+            <tr><td colspan="3"><hr /></td></tr>
+            <tr>
+                <td>User Since</td>
+                <td>:</td>
+                <td>@ViewBag.User.RegistrationDate.Date.ToString("dd/MMM/yyyy")</td>
+            </tr>
+        </table>
+        <hr />
+        @Html.ActionLink("Edit Profile", "EditProfile", "Admin")
+        @Html.ActionLink("Go Home", "Index", "Admin")
+    </form>
+</fieldset>

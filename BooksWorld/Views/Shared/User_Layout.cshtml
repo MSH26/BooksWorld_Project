@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Book's World</title>
+	</head>
+	<body>
+		<table width="100%" cellspacing="0" cellpadding="10" border="1">
+			<tr>
+				<td colspan="2" valign="middle" height="70">
+					<table width="100%">
+						<tr>
+							<td>
+								<a href="@Url.Action("Index", "User")">
+									<img height="48" src="../Resource/Picture/LayoutPictures/picture_logo.png" />
+								</a>
+							</td>
+							<td align="right">
+								Logged in as @Html.ActionLink("Bob", "ViewProfile", "User")&nbsp;|
+								@Html.ActionLink("Logout", "Logout", "User")
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td width="200" valign="top">
+					<b>&nbsp;@Html.ActionLink("Go Home", "Index", "User")</b><hr />
+					<b>&nbsp;PROFILE</b><hr />
+					<ul>
+						<li>@Html.ActionLink("Dashboard", "LoggedinDashboard", "User")</a></li>
+						<li>@Html.ActionLink("View Profile", "ViewProfile", "User")</li>
+						<li>@Html.ActionLink("Edit Profile", "EditProfile", "User")</li>
+						<li>@Html.ActionLink("Change Profile Picture", "ProfilePicture", "User")</li>
+						<li>@Html.ActionLink("Change Password", "ChangePassword", "User")</li>
+					</ul>
+					<hr /><b>&nbsp;Order</b><hr />
+					<ul>                
+						
+						<li>@Html.ActionLink("Pending Orders", "PendingOrder", "User")</li>
+						<li>@Html.ActionLink("Order History", "OrderHistory", "User")</li>
+						<li>@Html.ActionLink("Cart", "CartHistory", "User")</li>
+									
+					</ul>
+					
+					<hr /><b>&nbsp;BOOK</b><hr />
+					<ul>                
+						<li>@Html.ActionLink("Book List", "SearchBook", "User")</li>
+						<li>@Html.ActionLink("Offers", "CurrentOffer", "User")</li>
+					</ul>
+
+                    <hr /><b>&nbsp;Report</b><hr />
+                    <ul>
+                        <li>
+                            Library Reports
+                            <ul>
+                                <li>@Html.ActionLink("Top Liked Books", "TopLikedBooks", "User")</li>
+                                <li>@Html.ActionLink("Rating", "Rating", "User")</li>
+                                <li>@Html.ActionLink("Sale", "Sale", "User")</li>
+                                <li>@Html.ActionLink("Rent", "Rent", "User")</li>
+                                <li>@Html.ActionLink("Books Add", "BooksAdd", "User")</li>
+                            </ul>
+                        </li>
+                    </ul>
+				</td>
+				<td valign="top">
+					@RenderBody()
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					Copyright &copy; 2017
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
